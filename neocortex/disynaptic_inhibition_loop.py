@@ -140,7 +140,7 @@ netParams.connParams['PYR->SST'] = {
 netParams.connParams['SST->PYR'] = {
     'preConds': {'pop': 'sst'},
     'postConds': {'pop': 'post'},
-    'weight': 1,  # Not really sure about the weight parameter values used for the parameters, waiting for adjustment
+    'weight': 0.006,  # Not really sure about the weight parameter values used for the parameters, waiting for adjustment
     'delay': 'dist_3D/propVelocity', # Millisecond delay between when the pre-synaptic neuron fires and when that signal affects the post-synaptic neuron  
     'synMech': 'Inhibitory_SST_PYR',
     'sec': 'apical', # sections of the postsynaptic cell to connect to 
@@ -167,13 +167,14 @@ simConfig.hParams = {'v_init': -80, 'celcius': 34}  # Set celsius temp and start
 
 simConfig.recordTraces = {'V_soma':{'sec':'soma_0','loc':0.5,'var':'v'}}  # Dict with traces to record
 
+# Changing the files and data saving location to the current ones. 
 # Result control
 simConfig.filename = 'Disynaptic_Inhibition_LOOP_MODEL'  # Set data output location
 # simConfig.saveFig = '/Users/nelsonwu/Library/CloudStorage/OneDrive-Personal/FridmanLab/Computational_Project/neocortex_ABAN/FigureAndData'  # Set plot output location (NOT WORKING)
-simConfig.saveFolder = '/Users/nelsonwu/Library/CloudStorage/OneDrive-Personal/FridmanLab/Computational_Project/neocortex_ABAN/FigureAndData'  # Set plot output location (
-simConfig.analysis['plotRaster'] = {'saveFig': '/Users/nelsonwu/Library/CloudStorage/OneDrive-Personal/FridmanLab/Computational_Project/neocortex_ABAN/FigureAndData/raster_plot'}                  # Plot a raster"F""
-simConfig.analysis['plot2Dnet'] = {'saveFig': '/Users/nelsonwu/Library/CloudStorage/OneDrive-Personal/FridmanLab/Computational_Project/neocortex_ABAN/FigureAndData/2D_net_plot'}                   # plot 2D cell positions and connections
-simConfig.analysis['plotTraces'] = {'include': [('pre', 0), ('sst', 0), ('post', 0)], 'saveFig': '/Users/nelsonwu/Library/CloudStorage/OneDrive-Personal/FridmanLab/Computational_Project/neocortex_ABAN/FigureAndData/Disynaptic_Inhibition_LOOP_MODEL', 'saveData': '/Users/nelsonwu/Library/CloudStorage/OneDrive-Personal/FridmanLab/Computational_Project/neocortex_ABAN/FigureAndData/Voltage_trace.pkl'}  
+simConfig.saveFolder = '/Users/nelsonwu/Library/CloudStorage/OneDrive-Personal/FridmanLab/morphonetwork/neocortex/FigureAndData'  # Set plot output location (
+simConfig.analysis['plotRaster'] = {'saveFig': '/Users/nelsonwu/Library/CloudStorage/OneDrive-Personal/FridmanLab/morphonetwork/neocortex/FigureAndData/raster_plot'}                  # Plot a raster"F""
+simConfig.analysis['plot2Dnet'] = {'saveFig': '/Users/nelsonwu/Library/CloudStorage/OneDrive-Personal/FridmanLab/morphonetwork/neocortex/FigureAndData/2D_net_plot'}                   # plot 2D cell positions and connections
+simConfig.analysis['plotTraces'] = {'include': [('pre', 0), ('sst', 0), ('post', 0)], 'saveFig': '/Users/nelsonwu/Library/CloudStorage/OneDrive-Personal/FridmanLab/morphonetwork/neocortex/FigureAndData/Disynaptic_Inhibition_LOOP_MODEL', 'saveData': '/Users/nelsonwu/Library/CloudStorage/OneDrive-Personal/FridmanLab/Computational_Project/neocortex_ABAN/FigureAndData/Voltage_trace.pkl'}  
 
 # Trace files
 # simConfig.analysis['plotTraces'] = {'include': [('pre',0)], 'saveFig': '/Users/nelsonwu/Library/CloudStorage/OneDrive-Personal/FridmanLab/Computational_Project/neocortex_ABAN/FigureAndData/V_trace_0', 'saveData': '/Users/nelsonwu/Library/CloudStorage/OneDrive-Personal/FridmanLab/Computational_Project/neocortex_ABAN/FigureAndData/V_trace_0.pkl'}  # Plot recorded traces for this list of cells'}
